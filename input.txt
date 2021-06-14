@@ -1,0 +1,40 @@
+*********************************************************************************************
+****** Do not modify anything that does not say "REPLACE", this will crash the program ******
+*********************************************************************************************
+
+Login:
+
+*REPLACE WITH USERNAME*
+*REPLACE WITH PASSWORD*
+
+Class 1:
+
+*REPLACE WITH 'Tempe', 'Poly', or 'Internet'*
+*REPLACE WITH 3 CHARACTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH 'M', 'T', 'W', 'Th', or 'F' (IF NO LAB, DO NOT MODIFY LINE)*
+
+Class 2:
+
+*REPLACE WITH 'Tempe', 'Poly', or 'Internet'*
+*REPLACE WITH 3 CHARACTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH 'M', 'T', 'W', 'Th', or 'F' (IF NO LAB, DO NOT MODIFY LINE)*
+
+Class 3:
+
+*REPLACE WITH 'Tempe', 'Poly', or 'Internet'*
+*REPLACE WITH 3 CHARACTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH 'M', 'T', 'W', 'Th', or 'F' (IF NO LAB, DO NOT MODIFY LINE)*
+
+Class 4:
+
+*REPLACE WITH 'Tempe', 'Poly', or 'Internet'*
+*REPLACE WITH 3 CHARACTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH 'M', 'T', 'W', 'Th', or 'F' (IF NO LAB, DO NOT MODIFY LINE)*
+
+*********************************************************************************************
+****** Do not modify anything that does not say "REPLACE", this will crash the program ******
+*********************************************************************************************
