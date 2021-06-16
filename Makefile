@@ -1,7 +1,7 @@
-mybot: mybot.py
+schedulebot: schedulebot.py
 	
-	chmod +x mybot.py
-	cp mybot.py mybot
+	chmod +x schedulebot.py
+	cp schedulebot.py schedulebot
 
 clean	:
 	rm *.py run

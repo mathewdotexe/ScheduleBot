@@ -1,0 +1,44 @@
+*********************************************************************************************
+****** Do not modify anything that does not say "REPLACE", this will crash the program ******
+*********************************************************************************************
+
+Login:
+
+*REPLACE WITH USERNAME*
+*REPLACE WITH PASSWORD*
+
+Class 1:
+
+*REPLACE WITH LOCATION ('Tempe', 'Poly')*
+*REPLACE WITH 3 LETTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH CLASS SECTION DAYS ('M W F', 'M W', or 'T Th')*
+*REPLACE WITH LAB DAY ('M', 'T', 'W', 'Th', or 'F') IF NO LAB, DO NOT MODIFY LINE*
+
+Class 2:
+
+*REPLACE WITH LOCATION ('Tempe', 'Poly')*
+*REPLACE WITH 3 LETTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH CLASS SECTION DAYS ('M W F', 'M W', or 'T Th')*
+*REPLACE WITH LAB DAY ('M', 'T', 'W', 'Th', or 'F') IF NO LAB, DO NOT MODIFY LINE*
+
+Class 3:
+
+*REPLACE WITH LOCATION ('Tempe', 'Poly')*
+*REPLACE WITH 3 LETTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH CLASS SECTION DAYS ('M W F', 'M W', or 'T Th')*
+*REPLACE WITH LAB DAY ('M', 'T', 'W', 'Th', or 'F') IF NO LAB, DO NOT MODIFY LINE*
+
+Class 4:
+
+*REPLACE WITH LOCATION ('Tempe', 'Poly')*
+*REPLACE WITH 3 LETTER SUBJECT TAG*
+*REPLACE WITH SUBJECT NUMBER*
+*REPLACE WITH CLASS SECTION DAYS ('M W F', 'M W', or 'T Th')*
+*REPLACE WITH LAB DAY ('M', 'T', 'W', 'Th', or 'F') IF NO LAB, DO NOT MODIFY LINE*
+
+*********************************************************************************************
+****** Do not modify anything that does not say "REPLACE", this will crash the program ******
+*********************************************************************************************
