@@ -15,9 +15,9 @@ def main():
 			lines = f.read().splitlines()
 
 		[null, null, null, null, null, null, username, password, null, null, null, 
-		location1, subject1, number1, section1, labDay1, null, null, null, location2, subject2, 
-		number2, section2, labDay2, null, null, null, location3, subject3, number3, section3, labDay3, null, 
-		null, null, location4, subject4, number4, section4, labDay4, null, null, null, null] = lines
+		location1, subject1, number1, section1, labDay1, recDay1, null, null, null, location2, subject2, 
+		number2, section2, labDay2, recDay2, null, null, null, location3, subject3, number3, section3, labDay3, recDay3, null, 
+		null, null, location4, subject4, number4, section4, labDay4, recDay4, null, null, null, null] = lines
 
 		section1 = section1 + " "
 		section2 = section2 + " "
@@ -27,6 +27,7 @@ def main():
 		subjects = [subject1, subject2, subject3, subject4]
 		numbers = [number1, number2, number3, number4]
 		labDays = [labDay1, labDay2, labDay3, labDay4]
+		recDays = [recDay1, recDay2, recDay3, recDay4]
 		sections = [section1, section2, section3, section4]
 		locations = [location1, location2, location3, location4]
 
@@ -34,10 +35,12 @@ def main():
 		classIndex = 1
 
 		labExists = False
+		recExists = False
 		classExists = False
 
 		classBlock = []
 		labBlock = []
+		recBlock = []
 
 		print("")
 		print("*pat* *pat* good bot!")
@@ -176,66 +179,142 @@ def main():
 									expand = WebDriverWait(body, 10).until(
 										EC.presence_of_element_located((By.CLASS_NAME, "panel-heading.accordion-toggle"))
 										)
+									contents = expand.get_attribute('href')
 									expand.click()
 
-									lab = body.find_element_by_class_name("table.table-hover.related-classes-tbl")
-									myLab = lab.find_element_by_tag_name("tbody")
-									selections = myLab.find_elements_by_tag_name("tr")
+									if(contents == "#Laboratory"):
 
-									for selection in selections:
+										lab = body.find_element_by_class_name("table.table-hover.related-classes-tbl")
+										myLab = lab.find_element_by_tag_name("tbody")
+										selections = myLab.find_elements_by_tag_name("tr")
 
-										infos = selection.find_elements_by_class_name("rc")
+										for selection in selections:
 
-										for info in infos:
+											infos = selection.find_elements_by_class_name("rc")
 
-											if(info.text == labDays[index]):
+											for info in infos:
 
-												print("")
-												print("lab found:")
-												print("")
-												
-												labStuff = selection.text.split()
+												if(info.text == labDays[index]):
+
+													print("")
+													print("lab found:")
+													print("")
 													
-												labInfoForUser1 = (labStuff[1] + " " + labStuff[2] + " " + labStuff[3] + " " + labStuff[4]
-												 + " " + labStuff[5] + " - " + labStuff[6] + " " + labStuff[7])
+													labStuff = selection.text.split()
+														
+													labInfoForUser1 = (labStuff[1] + " " + labStuff[2] + " " + labStuff[3] + " " + labStuff[4]
+													 + " " + labStuff[5] + " - " + labStuff[6] + " " + labStuff[7])
 
-												labInfoForUser2 = (labStuff[8] + " " + labStuff[9] + " " + labStuff[10] + " " + labStuff[11]
-												 + " " + labStuff[12] + " " + labStuff[13])
+													labInfoForUser2 = (labStuff[8] + " " + labStuff[9] + " " + labStuff[10] + " " + labStuff[11]
+													 + " " + labStuff[12] + " " + labStuff[13])
 
-												labBlock.append(labInfoForUser1)
-												labBlock.append(labInfoForUser2)
+													labBlock.append(labInfoForUser1)
+													labBlock.append(labInfoForUser2)
 
-												print("     " + labInfoForUser1)
-												print("     " + labInfoForUser2)
+													print("     " + labInfoForUser1)
+													print("     " + labInfoForUser2)
 
-												time.sleep(1)
-												info.click()
+													time.sleep(1)
+													info.click()
 
-												labExists = True
-
-
-									if(labExists == False):
-
-										print("")
-										print("unable to add class...")
-										print("your chosen lab day is closed or does not exist")
-										time.sleep(3)
-										break
-
-									if(labExists == True):
-
-										add = WebDriverWait(body, 10).until(
-											EC.presence_of_element_located((By.CLASS_NAME, "btn.btn-asu.add-button"))
-											)
-										add.click()
-										labExists = False
+													labExists = True
 
 
-								else:
+										if(labExists == False):
 
+											print("")
+											print("unable to add class...")
+											print("your chosen lab day is closed or does not exist")
+											time.sleep(3)
+											break
+
+										if(labExists == True):
+
+											add = WebDriverWait(body, 10).until(
+												EC.presence_of_element_located((By.CLASS_NAME, "btn.btn-asu.add-button"))
+												)
+											add.click()
+											labExists = False
+
+
+
+								if(recDays[index] != "*REPLACE WITH RECITATION DAY ('M', 'T', 'W', 'Th', or 'F') IF NO RECITATION, DO NOT MODIFY LINE*"):
+
+									print("")
+									print("searching for recitation on: " + recDays[index])
 
 									time.sleep(3)
-									link = course.find_element_by_class_name("btn.btn-add-class").click()
+
+									link = course.find_element_by_css_selector('[alt="Select"]').click()
+
+									expand = WebDriverWait(body, 10).until(
+										EC.presence_of_element_located((By.CLASS_NAME, "panel-heading.accordion-toggle"))
+										)
+									contents = expand.get_attribute('href')
+									expand.click()
+
+									if(contents == "#Recitation"):
+
+										lab = body.find_element_by_class_name("table.table-hover.related-classes-tbl")
+										myLab = lab.find_element_by_tag_name("tbody")
+										selections = myLab.find_elements_by_tag_name("tr")
+
+										for selection in selections:
+
+											infos = selection.find_elements_by_class_name("rc")
+
+											for info in infos:
+
+												if(info.text == recDays[index]):
+
+													print("")
+													print("recitation found:")
+													print("")
+													
+													recStuff = selection.text.split()
+														
+													recInfoForUser1 = (recStuff[1] + " " + recStuff[2] + " " + recStuff[3] + " " + recStuff[4]
+													 + " " + recStuff[5] + " - " + recStuff[6] + " " + recStuff[7])
+
+													recInfoForUser2 = (recStuff[8] + " " + recStuff[9] + " " + recStuff[10] + " " + recStuff[11]
+													 + " " + recStuff[12] + " " + recStuff[13])
+
+													recBlock.append(recInfoForUser1)
+													recBlock.append(recInfoForUser2)
+
+													print("     " + recInfoForUser1)
+													print("     " + recInfoForUser2)
+
+													time.sleep(1)
+													info.click()
+
+													recExists = True
+
+
+										if(recExists == False):
+
+											print("")
+											print("unable to add class...")
+											print("your chosen recitation day is closed or does not exist")
+											time.sleep(3)
+											break
+
+										if(recExists == True):
+
+											add = WebDriverWait(body, 10).until(
+												EC.presence_of_element_located((By.CLASS_NAME, "btn.btn-asu.add-button"))
+												)
+											add.click()
+											recExists = False
+
+
+								if(labDays[index] == "*REPLACE WITH LAB DAY ('M', 'T', 'W', 'Th', or 'F') IF NO LAB, DO NOT MODIFY LINE*"):
+
+
+									if(recDays[index] == "*REPLACE WITH RECITATION DAY ('M', 'T', 'W', 'Th', or 'F') IF NO RECITATION, DO NOT MODIFY LINE*"):
+
+										time.sleep(3)
+										link = course.find_element_by_class_name("btn.btn-add-class").click()
 
 
 								print("")
