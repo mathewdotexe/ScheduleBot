@@ -38,9 +38,9 @@ def main():
 		recExists = False
 		classExists = False
 
-		classBlock = []
-		labBlock = []
-		recBlock = []
+		classBlocks = []
+		labBlocks = []
+		recBlocks = []
 
 		print("")
 		print("*pat* *pat* good bot!")
@@ -160,10 +160,12 @@ def main():
 								classLine1 = (className.text + " " + title.text + " " + sectionNum.text)
 								classLine2 = (instructor.text + " " + section.text + start.text + "- " + end.text)
 								classLine3 = (location.text + " " + date.text)
+								classLine4 = ""
 
-								classBlock.append(classLine1)
-								classBlock.append(classLine2)
-								classBlock.append(classLine3)
+								classBlocks.append(classLine1)
+								classBlocks.append(classLine2)
+								classBlocks.append(classLine3)
+								classBlocks.append(classLine4)
 
 								time.sleep(1)
 
@@ -208,8 +210,11 @@ def main():
 													labInfoForUser2 = (labStuff[8] + " " + labStuff[9] + " " + labStuff[10] + " " + labStuff[11]
 													 + " " + labStuff[12] + " " + labStuff[13])
 
-													labBlock.append(labInfoForUser1)
-													labBlock.append(labInfoForUser2)
+													labInfoForUser3 = ""
+
+													labBlocks.append(labInfoForUser1)
+													labBlocks.append(labInfoForUser2)
+													labBlocks.append(labInfoForUser3)
 
 													print("     " + labInfoForUser1)
 													print("     " + labInfoForUser2)
@@ -279,8 +284,11 @@ def main():
 													recInfoForUser2 = (recStuff[8] + " " + recStuff[9] + " " + recStuff[10] + " " + recStuff[11]
 													 + " " + recStuff[12] + " " + recStuff[13])
 
-													recBlock.append(recInfoForUser1)
-													recBlock.append(recInfoForUser2)
+													recInfoForUser3 = ""
+
+													recBlocks.append(recInfoForUser1)
+													recBlocks.append(recInfoForUser2)
+													recBlocks.append(recInfoForUser3)
 
 													print("     " + recInfoForUser1)
 													print("     " + recInfoForUser2)
@@ -379,20 +387,39 @@ def main():
 		print("cart updated!")
 		time.sleep(5)
 		print("")
-		print("******************************************")
-		print("*** schedule building process complete ***")
-		print("******************************************")
+		print("**********************************************")
+		print("******** your final ASU Shopping Cart ********")
+		print("**********************************************")
 		print("")
 
-		print(classBlock)
-		print("")
-		print(labBlock)
+		print("Classes:")
 		print("")
 
-		numOfClasses = (len(classBlock) / 3)
-		print(numOfClasses)
+		for classBlock in classBlocks:
+
+			print("     " + classBlock)
+
+		print("Labs:")
+		print("")
+
+		for labBlock in labBlocks:
+
+			print("     " + labBlock)
+
+		print("Recitations:")
+		print("")
+
+		for recBlock in recBlocks:
+
+			print("     " + recBlock)
+
+		print("***********************************************")
+		print("*** this bot only adds classes to your cart ***")
+		print("******* make sure to finish enrolling! ********")
+		print("***********************************************")
+		print("")
+
 		driver.quit()
-
 
 	finally:
 
