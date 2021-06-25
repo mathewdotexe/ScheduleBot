@@ -49,7 +49,7 @@ def main():
 		options = webdriver.ChromeOptions()
 		options.add_argument('headless')
 		PATH = "/Users/castiel/chromedriver"
-		driver = webdriver.Chrome(PATH)
+		driver = webdriver.Chrome(PATH, options = options)
 
 		driver.get("https://webapp4.asu.edu/catalog/classlist?t=2217&hon=F&promod=F&e=open&page=1")
 
@@ -364,6 +364,7 @@ def main():
 									nowSearch = WebDriverWait(driver,10).until(
 										EC.presence_of_element_located((By.ID, "win2divSCC_NAV_TAB_row$2"))
 											)
+									time.sleep(1)
 									nowSearch.click()
 
 								break
